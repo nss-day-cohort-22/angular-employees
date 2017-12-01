@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="TodoApp">
+
+    <section ng-controller="EmployeeCtrl">
+
+        <h2>New employee</h2>
+        <form ng-submit="addEmployee()">
+            <div>
+                First name: <input type="text" ng-model="newEmployee.firstName">
+            </div>
+            <div>
+                Last name: <input type="text" ng-model="newEmployee.lastName">
+            </div>
+            <button>Hire employee</button>
+        </form>
+
+        <div>
+            <ul ng-repeat="(key, employee) in employees">
+                <li ng-if="employee.employmentEnd === 0">
+                    {{ employee.firstName }} {{ employee.lastName }}
+                    <button ng-click="fireEmployee(employee, key)">Fire</button>
+                    <button ng-click="killEmployee(key)">Murder</button>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <script src="lib/node_modules/angular/angular.min.js"></script>
+    <script src="./app/Todo.js"></script>
+    <script src="./app/Employee.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
