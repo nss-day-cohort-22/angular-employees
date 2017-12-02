@@ -1,0 +1,11 @@
+<a href="#!/employees/new">Create employee</a>
+
+<h2>Employee List</h2>
+
+<div>
+    <input type="text" ng-model="query" />
+</div>
+
+<div ng-repeat="person in employees | filter: query">
+    <a href="#!/employees/detail/{{ person.id }}">{{ person.firstName }} {{ person.lastName }}</a>
+</div>

@@ -1,0 +1,17 @@
+<a href="#!/employees/list">List employees</a>
+
+<h2>New employee</h2>
+<form ng-submit="addEmployee()">
+    <div>
+        First name: <input type="text" ng-model="newEmployee.firstName">
+    </div>
+    <div>
+        Last name: <input type="text" ng-model="newEmployee.lastName">
+    </div>
+    <button>Hire employee</button>
+</form>
+
+<h2>Current employees</h2>
+<div ng-repeat="person in employees | filter: query">
+    {{ person.firstName }} {{ person.lastName }}
+</div>
