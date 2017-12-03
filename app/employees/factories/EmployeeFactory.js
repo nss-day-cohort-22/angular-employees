@@ -47,7 +47,8 @@ angular
 
                 return $http({
                     method: "PUT",
-                    url: `https://angular-employees-6727b.firebaseio.com/employees/${key}/.json`
+                    url: `https://angular-employees-6727b.firebaseio.com/employees/${key}/.json`,
+                    data: employee
                 })
             }
         },

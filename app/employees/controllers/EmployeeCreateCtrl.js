@@ -28,13 +28,24 @@ angular
             "employmentEnd": 0
         }
 
+        /**
+         * Use the factory to POST to Firebase
+         */
         EmployeeFactory.add(employee).then(() => {
             $scope.newEmployee.firstName = ""
             $scope.newEmployee.lastName = ""
         })
+
+        /**
+         * If POST was successful, retrieve new list of employees
+         */
         .then(() => {
             return EmployeeFactory.list()
         })
+
+        /**
+         * Bind new list of employees to scope so view gets updated
+         */
         .then(employees => {
             $scope.employees = employees
         })
