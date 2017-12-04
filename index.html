@@ -8,11 +8,21 @@
 </head>
 <body ng-app="EmployeeApp">
 
+    <nav ng-controller="AuthCtrl">
+        <button ng-click="logoutUser()">Logout</button>
+    </nav>
+
     <div ng-view></div>
 
     <script src="./lib/node_modules/angular/angular.min.js"></script>
+    <script src="./lib/node_modules/firebase/firebase.js"></script>
     <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
     <script src="./app/app.js"></script>
+    <script src="./app/app.config.js"></script>
+
+    <script src="./app/auth/factories/AuthFactory.js"></script>
+    <script src="./app/auth/controllers/AuthCtrl.js"></script>
+
     <script src="./app/employees/factories/EmployeeFactory.js"></script>
     <script src="./app/employees/controllers/EmployeeListCtrl.js"></script>
     <script src="./app/employees/controllers/EmployeeCreateCtrl.js"></script>
