@@ -4,8 +4,8 @@ angular.module("EmployeeApp").config(function ($routeProvider) {
     /**
      * Configure all Angular application routes here
      */
-    $routeProvider.
-        when("/employees/list", {
+    $routeProvider
+        .when("/employees/list", {
             templateUrl: "app/employees/partials/list.html",
             controller: "EmployeeListCtrl"
         })

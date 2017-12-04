@@ -1,12 +1,12 @@
 angular
 .module("EmployeeApp")
-.controller("EmployeeListCtrl", function ($scope, EmployeeFactory) {
+.controller("EmployeeListCtrl", function (EmployeeFactory, $scope) {
     $scope.employees = []
 
     /**
      * Use factory to get all employees from Firebase
      */
-    EmployeeFactory.list(true).then(data => {
+    EmployeeFactory.list().then(data => {
         $scope.employees = data
     })
 })

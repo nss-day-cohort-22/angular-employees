@@ -16,8 +16,8 @@ angular
         on the button in the view
         */
         $scope.fireEmployee = () =>
-        EmployeeFactory.fire($scope.employee, $routeParams.employeeId).then(() =>
-        $location.url("/"));
+            EmployeeFactory.fire($scope.employee, $routeParams.employeeId).then(() =>
+                $location.url("/"));
 
         /*
         This function is bound to an ng-click directive
