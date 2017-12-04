@@ -1,2 +1,2 @@
-angular.module("EmployeeApp", ["ngRoute", "firebase"])
+angular.module("EmployeeApp", ["ngRoute"])
 

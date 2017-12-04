@@ -1,5 +1,5 @@
 angular.module("EmployeeApp")
-.controller("AuthCtrl", function($scope, $location, $timeout, AuthFactory) {
+.controller("AuthCtrl", function($scope, $location, AuthFactory) {
     $scope.auth = {}
 
     $scope.logoutUser = function () {

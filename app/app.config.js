@@ -7,16 +7,8 @@ angular.module("EmployeeApp").constant("FIREBASE_CONFIG", {
     messagingSenderId: "413986069191"
 })
 
-angular.module("EmployeeApp").factory("Auth", function($firebaseAuth) {
-  return $firebaseAuth();
-})
-
-angular.module("EmployeeApp").run(function ($rootScope, FIREBASE_CONFIG, $location, $timeout) {
+angular.module("EmployeeApp").run(function (FIREBASE_CONFIG) {
     firebase.initializeApp(FIREBASE_CONFIG)
-
-    $rootScope.$on("$locationChangeSuccess", function () {
-        console.log("location changed")
-    })
 })
 
 const isAuth = AuthFactory => new Promise ((resolve, reject) => {

@@ -8,14 +8,14 @@ angular.module("EmployeeApp")
             console.log("User is authenticated")
             $timeout(function () {
                 $location.url("/employees/list")
-            }, 500);
+            }, 500)
 
         } else {
             currentUserData = null
             console.log("User is not authenticated")
             $timeout(function () {
                 $location.url("/auth")
-            }, 500);
+            }, 500)
         }
     })
 
