@@ -7,20 +7,15 @@ angular.module("EmployeeApp").constant("FIREBASE_CONFIG", {
     messagingSenderId: "413986069191"
 })
 
-angular.module("EmployeeApp").run(function (FIREBASE_CONFIG, $location, $timeout) {
+angular.module("EmployeeApp").factory("Auth", function($firebaseAuth) {
+  return $firebaseAuth();
+})
+
+angular.module("EmployeeApp").run(function ($rootScope, FIREBASE_CONFIG, $location, $timeout) {
     firebase.initializeApp(FIREBASE_CONFIG)
 
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log("User is authenticated")
-            currentUserData = user
-            $timeout(() => $location.url("/employees/list"), 500);
-
-        } else {
-            console.log("User is not authenticated")
-            currentUserData = null
-            $timeout(() => $location.url("/auth"), 500);
-        }
+    $rootScope.$on("$locationChangeSuccess", function () {
+        console.log("location changed")
     })
 })
 
@@ -39,18 +34,26 @@ angular.module("EmployeeApp").config(function ($routeProvider) {
     /**
      * Configure all Angular application routes here
      */
-    $routeProvider.
-        when("/employees/list", {
+    $routeProvider
+        .when("/", {
             templateUrl: "app/employees/partials/list.html",
             controller: "EmployeeListCtrl",
+            resolve: { isAuth }
+        })
+        .when("/employees/list", {
+            templateUrl: "app/employees/partials/list.html",
+            controller: "EmployeeListCtrl",
+            resolve: { isAuth }
         })
         .when('/employees/new', {
             templateUrl: 'app/employees/partials/create.html',
             controller: 'EmployeeCreateCtrl',
+            resolve: { isAuth }
         })
         .when('/employees/detail/:employeeId', {
             templateUrl: 'app/employees/partials/detail.html',
             controller: 'EmployeeDetailCtrl',
+            resolve: { isAuth }
         })
         .when('/auth', {
             templateUrl: 'app/auth/partials/register.html',
