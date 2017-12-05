@@ -1,0 +1,27 @@
+body {
+    font-size: 1.5em;
+}
+
+input, button {
+    font-size: 1em;
+
+}
+
+nav {
+    background-color: goldenrod;
+}
+
+nav > ul {
+    padding: 0;
+    padding: 10px;
+}
+
+nav > ul > li {
+    display: inline;
+    list-style-type: none;
+    margin: 0 10px;
+}
+
+.align-right {
+    margin: 0 0 0 70px;
+  }

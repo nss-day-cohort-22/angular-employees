@@ -41,6 +41,15 @@ angular
                 })
             }
         },
+        "find": {
+            value: function (searchString) {
+                const result = this.cache.find(emp => {
+                    return emp.firstName.includes(searchString) ||
+                           emp.lastName.includes(searchString)
+                })
+                return result
+            }
+        },
         "fire": {
             value: function (employee, key) {
                 employee.employmentEnd = Date.now()

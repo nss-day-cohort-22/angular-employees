@@ -10,7 +10,7 @@ angular.module("EmployeeApp")
     $scope.logMeIn = function () {
         AuthFactory.authenticate($scope.auth).then(function (didLogin) {
             $scope.login = {}
-            $location.path("/employees/list")
+            $location.url("/employees/list")
         })
     }
 
