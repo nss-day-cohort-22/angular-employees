@@ -7,7 +7,7 @@ angular.module("EmployeeApp").controller("NavCtrl",
         $scope.isAuthenticated = () => AuthFactory.isAuthenticated();
 
         $scope.finder = event => {
-            if (event.charCode === 13) {
+            if (event.key === "Enter") {
                 const employee = EmployeeFactory.find($scope.searchString)
                 $location.url(`/employees/detail/${employee.id}`)
             }
