@@ -5,7 +5,7 @@
 
     <li class="align-right">
         <span ng-if="isAuthenticated()">
-            <a href="#" ng-click="logout()">Logout</a>
+            <a href="#" ng-click="logout()">Logout <span>{{ email }}</span></a>
         </span>
         <span ng-if="!isAuthenticated()"></span>
     </li>

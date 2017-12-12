@@ -1,5 +1,5 @@
 angular.module("EmployeeApp")
-.factory("AuthFactory", function ($http, $timeout, $location, $route) {
+.factory("AuthFactory", function ($http, $timeout, $location, $route, $rootScope) {
     let currentUserData = null
 
     firebase.auth().onAuthStateChanged(function (user) {
@@ -13,6 +13,9 @@ angular.module("EmployeeApp")
             } else {
                 $route.reload()
             }
+
+            $rootScope.$broadcast("authenticationSuccess")
+
 
         } else {
             currentUserData = null
@@ -31,7 +34,7 @@ angular.module("EmployeeApp")
             }
         },
         getUser: {
-            value: () => firebase.auth().currentUser
+            value: () => currentUserData
         },
         logout: {
             value: () => firebase.auth().signOut()
